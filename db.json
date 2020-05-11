@@ -1,25 +1,32 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Changed hard drive on worstation 005",
-      "attention": false,
-      "date": "03-02-2019",
-      "tech": "Sam Smith"
-    },
-    {
-      "id": 2,
-      "message": "Workstation 007 not posting",
+      "message": "Susan sneezed on her keyboard. ",
       "attention": true,
-      "date": "03-02-2019",
-      "tech": "John Doe"
+      "tech": "Sara Williams",
+      "date": "2020-05-11T00:15:23.843Z",
+      "id": 1
     },
     {
-      "id": 3,
-      "message": "Changed memory on workstation 050",
+      "message": "Send help",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2020-05-11T00:15:38.696Z",
+      "id": 2
+    },
+    {
+      "message": "Sent help",
       "attention": false,
-      "date": "03-02-2019",
-      "tech": "Sara Wilson"
+      "tech": "Sam Smith",
+      "date": "2020-05-11T00:16:05.086Z",
+      "id": 3
+    },
+    {
+      "message": "test",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2020-05-11T00:17:21.776Z",
+      "id": 4
     }
   ],
   "techs": [
