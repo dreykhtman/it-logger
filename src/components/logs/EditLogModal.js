@@ -111,8 +111,12 @@ const EditLogModal = ({ current, updateLog }) => {
 };
 
 EditLogModal.propTypes = {
-  current: PropTypes.object.isRequired,
+  current: PropTypes.object,
   updateLog: PropTypes.func.isRequired,
+};
+
+EditLogModal.defaultProps = {
+  current: null,
 };
 
 const mapStateToProps = (state) => ({ current: state.log.current });
