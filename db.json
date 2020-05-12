@@ -3,9 +3,9 @@
     {
       "id": 1,
       "message": "Replaced Susan's keyboard.",
-      "attention": false,
-      "tech": "Sara Williams",
-      "date": "2020-05-12T01:34:42.480Z"
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2020-05-12T23:00:32.340Z"
     },
     {
       "message": "Killed myself",
@@ -15,11 +15,18 @@
       "id": 4
     },
     {
+      "id": 5,
       "message": "Need a new tech",
       "attention": true,
+      "tech": "Sara Wilson",
+      "date": "2020-05-12T23:00:21.965Z"
+    },
+    {
+      "id": 6,
+      "message": "This was updated by John Doe",
+      "attention": false,
       "tech": "John Doe",
-      "date": "2020-05-12T01:34:57.662Z",
-      "id": 5
+      "date": "2020-05-12T23:44:25.719Z"
     }
   ],
   "techs": [

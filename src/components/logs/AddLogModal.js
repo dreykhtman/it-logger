@@ -5,12 +5,9 @@ import { connect } from 'react-redux';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { addLog } from '../../actions/logActions';
+import TechSelectOptions from '../techs/TechSelectOptions';
 
-const modalStyle = {
-  width: '75%',
-  height: '75%',
-};
-
+// eslint-disable-next-line no-shadow
 const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
@@ -40,7 +37,14 @@ const AddLogModal = ({ addLog }) => {
   };
 
   return (
-    <div id="add-log-modal" className="modal" style={modalStyle}>
+    <div
+      id="add-log-modal"
+      className="modal"
+      style={{
+        width: '75%',
+        height: '75%',
+      }}
+    >
       <div className="modal-content">
         <h4>Add System Log</h4>
         <div className="row">
@@ -68,9 +72,7 @@ const AddLogModal = ({ addLog }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe">John Doe</option>
-              <option value="Sam Smith">Sam Smith</option>
-              <option value="Sara Williams">Sara Williams</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>

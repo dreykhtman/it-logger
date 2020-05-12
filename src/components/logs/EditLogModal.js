@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { updateLog } from '../../actions/logActions';
+import TechSelectOptions from '../techs/TechSelectOptions';
 
 // eslint-disable-next-line no-shadow
 const EditLogModal = ({ current, updateLog }) => {
@@ -73,9 +74,7 @@ const EditLogModal = ({ current, updateLog }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe">John Doe</option>
-              <option value="Sam Smith">Sam Smith</option>
-              <option value="Sara Williams">Sara Williams</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
