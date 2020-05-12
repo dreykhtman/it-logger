@@ -1,16 +1,24 @@
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const modalStyle = {
-  width: '75%',
-  height: '75%',
-};
+import { updateLog } from '../../actions/logActions';
 
-const EditLogModal = () => {
+// eslint-disable-next-line no-shadow
+const EditLogModal = ({ current, updateLog }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState('');
+
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setAttention(current.attention);
+      setTech(current.tech);
+    }
+  }, [current]);
 
   const onSubmit = () => {
     if (message === '' || tech === '') {
@@ -18,7 +26,17 @@ const EditLogModal = () => {
         html: 'Please enter a message and select a technician.',
       });
     } else {
-      console.log(message, attention, tech);
+      const updatedLog = {
+        id: current.id,
+        message,
+        attention,
+        tech,
+        date: new Date(),
+      };
+
+      updateLog(updatedLog);
+      M.toast({ html: `Log updated by ${tech}` });
+
       setMessage('');
       setTech('');
       setAttention(false);
@@ -26,7 +44,11 @@ const EditLogModal = () => {
   };
 
   return (
-    <div id="edit-log-modal" className="modal" style={modalStyle}>
+    <div
+      id="edit-log-modal"
+      className="modal"
+      style={{ width: '75%', height: '75%' }}
+    >
       <div className="modal-content">
         <h4>Edit System Log</h4>
         <div className="row">
@@ -37,9 +59,6 @@ const EditLogModal = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <label htmlFor="message" className="active">
-              Log Message
-            </label>
           </div>
         </div>
 
@@ -91,4 +110,11 @@ const EditLogModal = () => {
   );
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+  current: PropTypes.object.isRequired,
+  updateLog: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({ current: state.log.current });
+
+export default connect(mapStateToProps, { updateLog })(EditLogModal);
