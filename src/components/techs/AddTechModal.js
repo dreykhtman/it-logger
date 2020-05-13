@@ -1,8 +1,13 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddTechModal = () => {
+import { addTech } from '../../actions/techActions';
+
+// eslint-disable-next-line no-shadow
+const AddTechModal = ({ addTech }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -12,7 +17,11 @@ const AddTechModal = () => {
         html: 'Please enter the first and last name.',
       });
     } else {
-      console.log(firstName, lastName);
+      addTech({ firstName, lastName });
+
+      M.toast({
+        html: `${firstName} ${lastName} was added as a tech.`,
+      });
 
       setFirstName('');
       setLastName('');
@@ -64,4 +73,8 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+AddTechModal.propTypes = {
+  addTech: PropTypes.func.isRequired,
+};
+
+export default connect(null, { addTech })(AddTechModal);
