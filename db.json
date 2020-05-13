@@ -34,6 +34,13 @@
       "tech": "Bill Gates",
       "date": "2020-05-13T00:07:50.492Z",
       "id": 7
+    },
+    {
+      "message": "Who's Bill Gates?",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2020-05-13T00:34:22.248Z",
+      "id": 8
     }
   ],
   "techs": [
@@ -51,16 +58,6 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
-    },
-    {
-      "firstName": "Bill",
-      "lastName": "Gates",
-      "id": 4
-    },
-    {
-      "firstName": "Steve B.",
-      "lastName": "Jobs",
-      "id": 5
     }
   ]
 }
